@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "./protobuf";
+
+service Message {
+  rpc WhoIs(MessageResponseRequest) returns (MessageResponseRequest) {}
+}
+
+message MessageResponseRequest {
+  string message = 1;
+}
+
+//    protoc --go_out=. --go_opt=paths=source_relative     --go-grpc_out=. --go-grpc_opt=paths=source_relative message.proto
